@@ -1,0 +1,44 @@
+! font rendering
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #070707
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #141414
+*.color8:       #252628
+
+! red
+*.color1:       #8b4646
+*.color9:       #b36b6b
+
+! green
+*.color2:       #757a41
+*.color10:      #9ea36a
+
+! yellow
+*.color3:       #c58e68
+*.color11:      #d6b97d
+
+! blue
+*.color4:       #5d7284
+*.color12:      #8094a4
+
+! magenta
+*.color5:       #706076
+*.color13:      #9d90a1
+
+! cyan
+*.color6:       #597470
+*.color14:      #88a4a1
+
+! white
+*.color7:       #646567
+*.color15:      #acaead
