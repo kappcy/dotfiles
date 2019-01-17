@@ -16,5 +16,5 @@ until pgrep -u $UID -x polybar >/dev/null; do
     echo nope
     sleep 1
 done
-tint2 -c /home/kappcy/.config/tint2/static/polybar/1.tint2rc &
-tint2 -c /home/kappcy/.config/tint2/static/polybar/2.tint2rc &
+tint2 -c /home/kappcy/.config/tint2/1.tint2rc &
+tint2 -c /home/kappcy/.config/tint2/2.tint2rc &
