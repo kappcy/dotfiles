@@ -423,7 +423,16 @@
           <enabled>true</enabled>
           <name>toggle-screensaver</name>
         </startupnotify>
-        <command>~/scripts/openbox/toggle-screensaver.sh</command>
+        <command>~/scripts/openbox/screensaver.sh</command>
+      </action>
+    </keybind>
+    <keybind key="S-A-b">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>toggle-screensaver-suspend</name>
+        </startupnotify>
+        <command>~/scripts/openbox/screensaver.sh toggle</command>
       </action>
     </keybind>
     <keybind key="W-b">
