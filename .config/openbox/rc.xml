@@ -435,6 +435,15 @@
         <command>~/scripts/openbox/screensaver.sh toggle</command>
       </action>
     </keybind>
+    <keybind key="C-A-b">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>toggle-screensaver-suspend</name>
+        </startupnotify>
+        <command>~/scripts/openbox/screensaver.sh status</command>
+      </action>
+    </keybind>
     <keybind key="W-b">
       <action name="Execute">
         <startupnotify>
