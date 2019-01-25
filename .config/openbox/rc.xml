@@ -371,7 +371,7 @@
         <command>steam</command>
       </action>
     </keybind>
-    <!-- Keybindings for scripts and shit -->
+    <!-- Keybindings for mini-keyboard remote -->
     <keybind key="C-0">
       <action name="Execute">
         <startupnotify>
@@ -390,6 +390,25 @@
         <command>~/scripts/mouseflip</command>
       </action>
     </keybind>
+    <keybind key="C-8">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Autotile</name>
+        </startupnotify>
+        <command>xdotool key --clearmodifiers super+Home</command>
+      </action>
+    </keybind>
+    <keybind key="C-7">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Termite</name>
+        </startupnotify>
+        <command>termite</command>
+      </action>
+    </keybind>
+   <!-- Keybindings for scripts and shit -->
     <keybind key="S-W-k">
       <action name="Execute">
         <startupnotify>
