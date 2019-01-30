@@ -449,7 +449,7 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>toggle-screensaver-suspend</name>
+          <name>screensaver-toggle.suspend</name>
         </startupnotify>
         <command>~/scripts/openbox/screensaver.sh -t</command>
       </action>
@@ -467,9 +467,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>blank-screeen</name>
+          <name>screensaver-blank</name>
         </startupnotify>
-        <command>~/scripts/openbox/blank.sh</command>
+        <command>~/scripts/openbox/screensaver.sh -b</command>
       </action>
     </keybind>
     <keybind key="A-s">
