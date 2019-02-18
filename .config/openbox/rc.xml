@@ -408,7 +408,7 @@
         <command>termite</command>
       </action>
     </keybind>
-   <!-- Keybindings for scripts and shit -->
+    <!-- Keybindings for scripts and shit -->
     <keybind key="S-W-k">
       <action name="Execute">
         <startupnotify>
