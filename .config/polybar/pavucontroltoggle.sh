@@ -1,8 +1,6 @@
 #! /bin/bash
 
 if pidof pavucontrol
-then
-   kill -9 $(pidof pavucontrol) &
-else
-   pavucontrol &
+then pkill pavucontrol &
+else pavucontrol &
 fi
