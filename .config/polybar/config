@@ -206,9 +206,9 @@ format-muted-background = ${colors.volume}
 
 format-volume = <label-volume>
 format-muted = <label-muted>
-label-volume = "%{A1:~/.config/polybar/pavucontroltoggle.sh:} %percentage%%%{A}"
+label-volume = "%{A3:$HOME/scripts/pavu-scratchpad.sh:} %percentage%%%{A}"
 label-volume-foreground = ${colors.background}
-label-muted = "%{A1:~/.config/polybar/pavucontroltoggle.sh:}%{A}"
+label-muted = "%{A3:$HOME/scripts/pavu-scratchpad.sh:}%{A}"
 label-muted-foreground = ${colors.background}
 
 [module/date]
