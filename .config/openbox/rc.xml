@@ -424,7 +424,7 @@
           <enabled>true</enabled>
           <name>lock</name>
         </startupnotify>
-        <command>~/scripts/openbox/lock.sh</command>
+        <command>~/scripts/openbox/screenblank -l</command>
       </action>
     </keybind>
     <keybind key="S-A-l">
@@ -442,7 +442,7 @@
           <enabled>true</enabled>
           <name>toggle-screensaver</name>
         </startupnotify>
-        <command>~/scripts/openbox/screensaver.sh</command>
+        <command>~/scripts/openbox/screenblank</command>
       </action>
     </keybind>
     <keybind key="S-A-b">
@@ -451,7 +451,7 @@
           <enabled>true</enabled>
           <name>screensaver-toggle.suspend</name>
         </startupnotify>
-        <command>~/scripts/openbox/screensaver.sh -t</command>
+        <command>~/scripts/openbox/screenblank -t</command>
       </action>
     </keybind>
     <keybind key="C-A-b">
@@ -460,7 +460,7 @@
           <enabled>true</enabled>
           <name>screensaver-status</name>
         </startupnotify>
-        <command>~/scripts/openbox/screensaver.sh -s</command>
+        <command>~/scripts/openbox/screenblank -s</command>
       </action>
     </keybind>
     <keybind key="W-b">
@@ -469,7 +469,7 @@
           <enabled>true</enabled>
           <name>screensaver-blank</name>
         </startupnotify>
-        <command>~/scripts/openbox/screensaver.sh -b</command>
+        <command>~/scripts/openbox/screenblank -b</command>
       </action>
     </keybind>
     <keybind key="A-s">

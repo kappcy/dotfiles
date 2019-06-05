@@ -2,6 +2,7 @@
 
 sleep 1 && nitrogen --restore & #background
 sleep 3 && ~/scripts/xwinwrap-wallpaper.sh & #animated_wallpaper
+xdotool mousemove --sync 2880 540
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & #polkit
 /usr/lib/xfce4/notifyd/xfce4-notifyd & #notifications
@@ -10,7 +11,7 @@ numlockx on & #numlock
 compton & #compositor
 quicktile --daemonize & #tiling
 ~/.config/polybar/launchall.sh & #panels
-~/scripts/openbox/screensaver.sh & #my_screen-blanking_script
+~/scripts/openbox/screenblank & #my_screen-blanking_script
 
 #----------SysTray----------
 

@@ -4,10 +4,5 @@ pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
 
 xbindkeys
 
-xset s 0 0
-xset s noblank
-xset s noexpose
-xset dpms 0 0 0
-
 exec openbox-session
 

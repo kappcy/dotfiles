@@ -97,9 +97,11 @@ export EDITOR='nano'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-PATH=/home/kappcy/scripts/:"$PATH"
+export PATH=/home/kappcy/scripts/:$PATH
+export PATH=/home/kappcy/scripts/openbox/:$PATH
 
 xdotool windowsize $(xdotool getactivewindow) 660 430
+clear
 echo -e "\n"
 neofetch
 
