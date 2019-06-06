@@ -98,7 +98,6 @@ export EDITOR='nano'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=/home/kappcy/scripts/:$PATH
-export PATH=/home/kappcy/scripts/openbox/:$PATH
 
 xdotool windowsize $(xdotool getactivewindow) 660 430
 clear
