@@ -1,0 +1,15 @@
+#! /bin/sh
+# EXAMPLE
+# 106954755 Termite termite hidden=off sticky=off private=off locked=off marked=off center=off follow=off manage=on focus=on
+
+# Set calander placement
+if [[ "$3" =~ "gsimplecal" ]]; then
+	xdotool windowsize $1 410 180
+	xdotool windowmove $1 3418 44
+fi
+
+# Desktop 2 defaults as floating
+FLOATING_DESKTOP_ID=$(bspc query -D -d '^2')
+desk_id=$(bspc query -D -d "${2:-focused}")
+[ "$FLOATING_DESKTOP_ID" = "$desk_id" ] && echo "state=floating"
+

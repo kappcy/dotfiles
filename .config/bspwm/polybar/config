@@ -1,0 +1,286 @@
+[colors]
+bg0 = ${xrdb:color0}
+bg1 = #3c3836
+fg0 = ${xrdb:color15}
+fg1 = #ebdbb2
+
+DarkGrey = ${xrdb:color8}
+Grey = ${xrdb:color7}
+DarkRed = ${xrdb:color1}
+Red = ${xrdb:color9}
+DarkGreen = ${xrdb:color2}
+Green = ${xrdb:color10}
+DarkYellow = ${xrdb:color3}
+Yellow = ${xrdb:color11}
+DarkBlue = ${xrdb:color4}
+Blue = ${xrdb:color12}
+DarkMagenta = ${xrdb:color5}
+Magenta = ${xrdb:color13}
+DarkCyan = ${xrdb:color6}
+Cyan = ${xrdb:color14}
+
+[fonts]
+font-0 = fira code regular:pixelsize=10;2
+font-1 = Symbols Nerd Font :pixelsize=12;2
+font-2 = Symbols Nerd Font :pixelsize=12;3
+font-3 = "Source Han Sans JP:pixelsize=9;2"
+
+[bar/right]
+monitor = DVI-D-0
+width = 100%:-16
+height = 24
+offset-x = 8
+offset-y = 8
+fixed-center = false
+
+background = ${colors.bg0}
+foreground = ${colors.fg0}
+
+line-size = 2
+wm-restack = bspwm
+override-redirect = true
+enable-ipc = true
+
+border-top-size = 2
+border-bottom-size = 2
+border-right-size = 2
+border-left-size = 2
+border-color = ${colors.bg1}
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = bspwm_states_right seperator bspwm xtitle_right
+modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
+
+
+[bar/left]
+monitor = HDMI-0
+width = 100%:-16
+height = 24
+offset-x = 8
+offset-y = 8
+fixed-center = false
+
+background = ${colors.bg0}
+foreground = ${colors.fg0}
+
+line-size = 2
+wm-restack = bspwm
+override-redirect = true
+enable-ipc = true
+
+border-top-size = 2
+border-bottom-size = 2
+border-right-size = 2
+border-left-size = 2
+border-color = #343434
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = bspwm_states_left seperator bspwm xtitle_left
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-position = right
+tray-padding = 2
+tray-maxsize = 16
+tray-scale = 1.0
+tray-background = ${colors.bg0}
+
+
+[bar/tv]
+monitor = DP-0
+width = 100%:-32
+height = 34
+offset-x = 16
+offset-y = 16
+fixed-center = false
+
+background = ${colors.bg0}
+foreground = ${colors.fg0}
+
+line-size = 2
+wm-restack = bspwm
+override-redirect = true
+enable-ipc = true
+
+border-top-size = 2
+border-bottom-size = 2
+border-right-size = 2
+border-left-size = 2
+border-color = #343434
+
+font-0 = fira code regular:pixelsize=14;2
+font-1 = Symbols Nerd Font :pixelsize=16;2
+font-2 = Symbols Nerd Font :pixelsize=16;3
+font-3 = "Source Han Sans JP:pixelsize=13;2"
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = bspwm_states_tv seperator xtitle_tv
+modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
+
+
+[module/xwindow]
+type = internal/xwindow
+label = "%{A2:bspc node -c:}%title:0:100:...%%{A}"
+label-foreground = ${colors.fg0}
+
+format-prefix = "%{T3}	 %{T-}"
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+label-connected-foreground = ${colors.fg0}
+label-connected-underline = ${colors.Red}
+label-connected = "%{A1:gksu nm-connection-editor:} %local_ip%%{A}"
+
+[module/cpu_info]
+type = custom/script
+exec = echo " $(top -bn1 | sed -n '/Cpu/p' | awk '{print $2}' | sed 's/..,//')%  $(echo "$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon[0-9]/temp1_input) / 1000" | bc)°C"
+click-right = bspc rule -a \* -o state=floating && termite -e htop &
+interval = 1
+
+label-foreground = ${colors.fg0}
+label-underline = ${colors.Blue}
+
+[module/nvidia_info]
+type = custom/script
+tail = true
+exec-if = nvidia-smi
+exec = nvidia-smi --loop=1 --query-gpu=temperature.gpu,utilization.gpu,utilization.memory --format=csv,noheader,nounits | sed -ur 's|([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)| \2%  \1°C|g'
+
+label-foreground = ${colors.fg0}
+label-underline = ${colors.Magenta}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+format-volume = "%{A3:$HOME/scripts/pavu-scratchpad.sh:}<label-volume>%{A}"
+format-volume-underline = ${colors.Green}
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.fg0}
+
+label-muted = "%{A3:$HOME/scripts/pavu-scratchpad.sh:} muted%{A}"
+label-muted-foreground = ${colors.fg0}
+label-muted-underline = ${colors.Green}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %Y-%m-%d%
+time = %H:%M
+
+label-foreground = ${colors.fg0}
+label-underline = ${colors.Yellow}
+
+label = %{A1:gsimplecal &:} %date%  %time%%{A}
+
+[module/seperator]
+type = custom/text
+content-font = 4
+content = |
+
+[module/xtitle_right]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title DVI-D-0
+initial = 1
+[module/xtitle_left]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title HDMI-0
+initial = 1
+[module/xtitle_tv]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title DP-0
+initial = 1
+
+[module/bspwm_states_right]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled
+hook-1 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.floating
+hook-2 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.empty
+hook-3 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.tiled
+hook-4 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.floating
+hook-5 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.empty
+initial = 3
+[module/bspwm_states_left]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled
+hook-1 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.floating
+hook-2 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.empty
+hook-3 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.tiled
+hook-4 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.floating
+hook-5 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.empty
+initial = 3
+[module/bspwm_states_tv]
+type = custom/ipc
+hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled
+hook-1 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.floating
+hook-2 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.empty
+hook-3 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.tiled
+hook-4 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.floating
+hook-5 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.empty
+initial = 3
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+pin-workspaces = true
+
+ws-icon-0 = 1;壱
+ws-icon-1 = 2;弐
+ws-icon-2 = 3;参
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-padding = 1
+label-focused-foreground = ${colors.Green}
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.Yellow}
+
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.Red}
+
+label-empty = %icon%
+label-empty-foreground = ${colors.fg0}
+label-empty-padding = 1
+
+[settings]
+enable-ipc = true
+screenchange-reload = true
