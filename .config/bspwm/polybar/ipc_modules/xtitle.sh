@@ -11,20 +11,20 @@ get_title() {
 update() {
 	focused_node="$(bspc query -N -n)"
 	get_title $1
-	title_list+=($1='"'$title'"')
-	[[ ${last_title_list[@]} != *$1='"'$title'"'* ]] && \
-	[[ ${title_list[@]} = *$1='"'$title'"'* ]] && \
+	active_list+=($1='"'$xid'"')
+	[[ ${last_active_list[@]} != *$1='"'$xid'"'* ]] && \
+	[[ ${active_list[@]} = *$1='"'$xid'"'* ]] && \
 	polybar-msg hook xtitle_$2 1
 }
 
 case "$1" in
 	start)
 		xtitle -s | while read; do
-			unset title_list
+			unset active_list
 			update DVI-D-0 right
 			update HDMI-0 left
 			update DP-0 tv
-			last_title_list=(${title_list[@]})
+			last_active_list=(${active_list[@]})
 		done
 	;;
 	set_title)
