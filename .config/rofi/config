@@ -1,27 +1,27 @@
 ! "Enabled modi" Set from: File
-rofi.modi:                           run
+rofi.modi:                           run,drun,combi,window
 ! "Window width" Set from: File
-rofi.width:                          25
+rofi.width:                          800
 ! "Number of lines" Set from: File
-rofi.lines:                          5
+rofi.lines:                          10
 ! "Number of columns" Set from: File
-rofi.columns:                        3
+rofi.columns:                        2
 ! "Font to use" Set from: File
-rofi.font:                           cpmono_v07 plain 10
+rofi.font:                           fira code regular 10
 ! "Border width" Set from: File
-rofi.bw:                             1
+rofi.bw:                             2
 ! "Location on screen" Set from: File
 rofi.location:                       0
 ! "Padding" Set from: File
-rofi.padding:                        1
+rofi.padding:                        20
 ! "Y-offset relative to location" Set from: File
-rofi.yoffset:                        -445
+rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: File
-rofi.xoffset:                        713
+rofi.xoffset:                        0
 ! "Always show number of lines" Set from: File
 rofi.fixed-num-lines:                true
 ! "Whether to load and show icons" Set from: Default
-rofi.show-icons:                     false
+rofi.show-icons:                     true
 ! "Terminal to use" Set from: Default
 ! rofi.terminal:                       rofi-sensible-terminal
 ! "Ssh client to use" Set from: Default
@@ -63,7 +63,7 @@ rofi.auto-select:                    false
 ! "Parse known_hosts file for ssh mode" Set from: Default
 ! rofi.parse-known-hosts:              true
 ! "Set the modi to combine in combi mode" Set from: File
-rofi.combi-modi:                     window,run
+rofi.combi-modi:                     window,drun
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
 ! rofi.matching:                       normal
 ! "Tokenize input string" Set from: File
@@ -103,13 +103,13 @@ rofi.window-format:                  {w}   {c}   {t}
 ! "New style theme file" Set from: Default
 ! rofi.theme:                          
 ! "Color scheme for normal row" Set from: File
-rofi.color-normal:                   #252628,#acaead,#252628,#646567,#252628
+rofi.color-normal:                   #282828,#ebdbb2,#282828,#3c3836,#ebdbb2
 ! "Color scheme for urgent row" Set from: File
-rofi.color-urgent:                   #252628,#acaead,#252628,#646567,#252628
+rofi.color-urgent:                   #282828,#ebdbb2,#282828,#3c3836,#ebdbb2
 ! "Color scheme for active row" Set from: File
-rofi.color-active:                   #252628,#acaead,#252628,#646567,#252628
+rofi.color-active:                   #282828,#ebdbb2,#282828,#3c3836,#ebdbb2
 ! "Color scheme window" Set from: File
-rofi.color-window:                   #252628,#646567
+rofi.color-window:                   #282828,#3c3836
 ! "Max history size (WARNING: can cause slowdowns when set to high)." Set from: Default
 ! rofi.max-history-size:               25
 ! "Hide the prefix mode prefix on the combi view." Set from: Default

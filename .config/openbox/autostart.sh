@@ -11,7 +11,8 @@ numlockx on & #numlock
 compton & #compositor
 quicktile --daemonize & #tiling
 ~/.config/polybar/launchall.sh & #panels
-~/scripts/openbox/screenblank & #my_screen-blanking_script
+~/scripts/screenblank & #my_screen-blanking_script
+~/scripts/bg_watcher & #checks stuff. It's a work in progress
 
 #----------SysTray----------
 
@@ -22,7 +23,7 @@ shutter --min_at_startup & #screencapture_utility
 
 #-----------apps------------
 
-discord &
+discord-canary &
 steam -silent &
 pcmanfm &
 termite &

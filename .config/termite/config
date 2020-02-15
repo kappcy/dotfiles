@@ -4,7 +4,7 @@ audible_bell = false
 #bold_is_bright = true
 clickable_url = true
 dynamic_title = true
-font = Anonymous Pro Minus 10
+font = fira code regular 9
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -39,44 +39,43 @@ cursor_blink = system
 scrollbar = off
 
 [colors]
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-# special
-foreground      = #acaead
-foreground_bold = #acaead
-cursor          = #acaead
-background      = #2b2b2b
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# black
-color0  = #141414
-color8  = #070707
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# red
-color1  = #8b4646
-color9  = #b36b6b
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# green
-color2  = #757a41
-color10 = #9ea36a
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# yellow
-color3  = #c58e68
-color11 = #d6b97d
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
 
-# blue
-color4  = #5d7284
-color12 = #8094a4
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
 
-# magenta
-color5  = #706076
-color13 = #9d90a1
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
 
-# cyan
-color6  = #597470
-color14 = #88a4a1
-
-# white
-color7  = #646567
-color15 = #acaead
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 [hints]
 #font = Monospace 12

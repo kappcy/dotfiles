@@ -63,6 +63,8 @@ ZSH_THEME="bira"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,16 +100,17 @@ export EDITOR='nano'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=/home/kappcy/scripts/:$PATH
+export GOPATH=/home/$USER/.go
+export PATH=$PATH:$GOPATH/bin
 
-xdotool windowsize $(xdotool getactivewindow) 660 430
-clear
-echo -e "\n"
-neofetch
-
-
+alias ls="exa -al --color=always --group-directories-first"
+alias rm="rm -i"
 alias parsec="/usr/bin/parsecd app_daemon=1"
 alias FreeFileSync="/opt/freefilesync/FreeFileSync"
 alias fuck="killall -9"
 alias neo="clear && echo -e '\n' && neofetch"
 alias config-dots='/usr/bin/git --git-dir=$HOME/git/dotfiles/ --work-tree=$HOME'
 alias config-scripts='/usr/bin/git --git-dir=$HOME/git/scripts/ --work-tree=$HOME/scripts'
+
+
+source /home/kappcy/.config/broot/launcher/bash/br

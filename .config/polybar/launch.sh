@@ -10,3 +10,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar left -r &
 polybar middle -r &
 polybar right -r &
+polybar tv -r &

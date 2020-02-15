@@ -451,7 +451,16 @@
           <enabled>true</enabled>
           <name>screensaver-toggle.suspend</name>
         </startupnotify>
-        <command>~/scripts/screenblank -t</command>
+        <command>~/scripts/screenblank -ts</command>
+      </action>
+    </keybind>
+    <keybind key="S-C-b">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>screensaver-toggle.lock</name>
+        </startupnotify>
+        <command>~/scripts/screenblank -tl</command>
       </action>
     </keybind>
     <keybind key="C-A-b">
@@ -479,6 +488,15 @@
           <name>pavucontrol</name>
         </startupnotify>
         <command>~/scripts/pavu-scratchpad.sh</command>
+      </action>
+    </keybind>
+    <keybind key="A-g">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>shuttergrab</name>
+        </startupnotify>
+        <command>shutter -s</command>
       </action>
     </keybind>
     <keybind key="S-W-r">

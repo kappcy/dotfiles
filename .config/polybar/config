@@ -141,7 +141,7 @@ label-urgent-padding = 1
 label-empty-padding = 1
 
 
-format-prefix = ""
+format-prefix = " "
 format-prefix-foreground = ${colors.workspaces}
 format-prefix-background = ${colors.background}
 format-suffix = ""
