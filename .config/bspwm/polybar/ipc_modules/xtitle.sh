@@ -4,7 +4,7 @@ focus_monitor="bspc monitor pointed -f"
 get_info() {
 	xid=$(bspc query -N -n .active -m $1 2>/dev/null)
 	title="$(xtitle $xid)"
-	[[ -z $xid ]] && unset title
+	[[ -z $xid ]] && title=null
 	read -t "0.01" <> <(:)
 }
 
@@ -29,12 +29,12 @@ case "$1" in
 	;;
 	set_title)
 		get_info $2
-		[[ -z $xid ]] && exit
-		echo -ne "%{A1:$focus_monitor:}"
-		echo -ne "%{A2:$focus_monitor; bspc node -c:}"
-		echo -ne "%{T3}%{F#b8bb26}  %{F-}%{T-}"
-		echo -ne "$title"
-		echo -ne "%{A}%{A}"
-
+		[[ -n $xid ]] && {
+			echo -ne "%{A1:$focus_monitor:}"
+			echo -ne "%{A2:$focus_monitor; bspc node -c:}"
+			echo -ne "%{T3}%{F#b8bb26}  %{F-}%{T-}"
+			echo -ne "$title"
+			echo -ne "%{A}%{A}"
+		} || echo
 	;;
 esac
