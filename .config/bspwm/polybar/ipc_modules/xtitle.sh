@@ -5,7 +5,7 @@ get_info() {
 	xid=$(bspc query -N -n .active -m $1 2>/dev/null)
 	title="$(xtitle $xid)"
 	[[ -z $xid ]] && title=null
-	read -t "0.01" <> <(:)
+	read -t "0.02" <> <(:)
 }
 
 update() {
