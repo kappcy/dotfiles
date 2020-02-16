@@ -11,9 +11,9 @@ get_info() {
 update() {
 	get_info $1
 	title=${title//[^[:alnum:]]/SC}
-	title_list+=($1=$title)
-	[[ ${last_title_list[@]} != *$1=$title* ]] && \
-	[[ ${title_list[@]} = *$1=$title* ]] && \
+	title_list+=($1='"'$title'"')
+	[[ ${last_title_list[@]} != *$1='"'$title'"'* ]] && \
+	[[ ${title_list[@]} = *$1='"'$title'"'* ]] && \
 	polybar-msg hook xtitle_$2 1
 }
 
