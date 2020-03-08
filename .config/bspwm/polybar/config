@@ -23,7 +23,8 @@ Cyan = ${xrdb:color14}
 font-0 = fira code regular:pixelsize=10;2
 font-1 = Symbols Nerd Font :pixelsize=12;2
 font-2 = Symbols Nerd Font :pixelsize=12;3
-font-3 = "Source Han Sans JP:pixelsize=9;2"
+font-3 = "Source Han Sans JP:pixelsize=9;3"
+font-4 = "Source Han Sans JP:pixelsize=9;2"
 
 [bar/right]
 monitor = DVI-D-0
@@ -57,7 +58,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_right seperator bspwm xtitle_right
+modules-left = launcher seperator bspwm_states_right seperator bspwm xtitle_right
 modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
 
 
@@ -93,7 +94,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_left seperator bspwm xtitle_left
+modules-left = launcher seperator bspwm_states_left seperator bspwm xtitle_left
 
 tray-detached = false
 tray-offset-x = 0
@@ -137,7 +138,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_tv seperator xtitle_tv
+modules-left = launcher seperator bspwm_states_tv seperator xtitle_tv
 modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
 
 
@@ -202,17 +203,24 @@ label = %{A1:gsimplecal &:} %date%  %time%%{A}
 
 [module/seperator]
 type = custom/text
-content-font = 4
-content = |
+content-font = 5
+content = %{F#928374}|%{F-}
+
+[module/launcher]
+type = custom/text
+content-font = 3
+content = "%{A1:bspc monitor pointed -f; rofi -show drun -m -4:}%{F#458588}%{F-}%{A}"
 
 [module/xtitle_right]
 type = custom/ipc
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title DVI-D-0
 initial = 1
+
 [module/xtitle_left]
 type = custom/ipc
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title HDMI-0
 initial = 1
+
 [module/xtitle_tv]
 type = custom/ipc
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/xtitle.sh set_title DP-0
@@ -227,6 +235,7 @@ hook-3 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.tiled
 hook-4 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.floating
 hook-5 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.empty
 initial = 3
+
 [module/bspwm_states_left]
 type = custom/ipc
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled
@@ -236,6 +245,7 @@ hook-3 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.tiled
 hook-4 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.floating
 hook-5 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh monocle.empty
 initial = 3
+
 [module/bspwm_states_tv]
 type = custom/ipc
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled

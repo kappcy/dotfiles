@@ -5,7 +5,7 @@ get_info() {
 	xid=$(bspc query -N -n .active -m $1 2>/dev/null)
 	title="$(xtitle $xid)"
 	[[ -z $xid ]] && title=null
-	read -t "0.02" <> <(:)
+	read -t "0.04" <> <(:)
 }
 
 update() {
@@ -33,8 +33,10 @@ case "$1" in
 			echo -ne "%{A1:$focus_monitor:}"
 			echo -ne "%{A2:$focus_monitor; bspc node -c:}"
 			echo -ne "%{T3}%{F#b8bb26}  %{F-}%{T-}"
+			[[ "${#title}" -gt "120" ]] && \
+			title="${title:0:120}..."
 			echo -ne "$title"
 			echo -ne "%{A}%{A}"
-		} || echo
+		} || echo -ne "%{T3}%{F#928374}  %{F-}%{T-}"
 	;;
 esac

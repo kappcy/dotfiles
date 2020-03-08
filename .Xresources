@@ -1,3 +1,15 @@
+! font rendering
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! mouse related
+Xcursor.size: 24
+
 ! File: gruvbox-dark
 ! Author: morhetz <morhetz@gmail.com>
 ! Source: https://github.com/morhetz/gruvbox-contrib
@@ -31,13 +43,4 @@
 *color7:  #a89984
 *color15: #ebdbb2
 
-! font rendering
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintslight
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
 
-! mouse related
-Xcursor.size: 24
