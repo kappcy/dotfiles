@@ -24,9 +24,8 @@ Plugin 'vimwiki/vimwiki'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on    " required
+filetype indent on
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -55,7 +54,7 @@ filetype plugin indent on    " required
 	set backspace=indent,eol,start              " backspacing over everything in insert mode
 	set complete+=k                             " scan the files given with the 'dictionary' option
    	set ttymouse=sgr
-"   set mouse=nicr
+    set mouse=nicr
 
 " Enable autocompletion:
     set wildmenu
@@ -110,6 +109,7 @@ filetype plugin indent on    " required
     ino <Down> <Nop>
     ino <Left> <Nop>
     ino <Right> <Nop>
+
 " In insert or command mode, move normally by using Ctrl
 	inoremap <C-h> <Left>
 	inoremap <C-j> <Down>
@@ -132,7 +132,7 @@ filetype plugin indent on    " required
 	map <leader>j <C-w>j
 	map <leader>k <C-w>k
 	map <leader>l <C-w>l
-    map - <C-W>-
+    map _ <C-W>-
     map + <C-W>+
     map < <C-W><
     map > <C-W>>
@@ -140,4 +140,7 @@ filetype plugin indent on    " required
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" reload syntax highlighting
+	map <leader>f :filetype detect<CR>
 

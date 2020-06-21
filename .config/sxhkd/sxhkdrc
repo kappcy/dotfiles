@@ -146,16 +146,16 @@ super + KP_Divide
 # keybindings for mini-keyboard remote
 #
 
-# send to/from tv
-ctrl + {_,shift + }0
+# send to next screen
+ctrl + {_,shift + }F8
     bspc {node -m,monitor -f} next --follow
 
 # mouseflip
-ctrl + 9
+ctrl + F7
     ~/scripts/mouseflip
 
 # nnn/terminal
-ctrl + {_,shift + }8
+ctrl + {_,shift + }F6
     {alacritty -e nnn,alacritty}
 
 #
@@ -178,6 +178,9 @@ alt + {_,shift + }button2
 super + m
 	bspc desktop -l next
 
+# send to next screen
+ctrl + Return
+    bspc node -m next --follow
 #
 # state/flags
 #
@@ -307,4 +310,13 @@ super + {h,j,k,l}
 # arrow keys
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# audio keys
+
+# volume
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -1500
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +1500
 

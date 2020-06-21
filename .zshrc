@@ -42,13 +42,13 @@ alias config-scripts='/usr/bin/git --git-dir=$HOME/git/scripts/ --work-tree=$HOM
 
 # vim thing
 setopt PROMPT_SUBST
-MODE_INDICATOR_VIINS='%F{4}INSERT%f'
-MODE_INDICATOR_VICMD='%F{5}NORMAL%f'
-MODE_INDICATOR_REPLACE='%F{11}REPLACE%f'
-MODE_INDICATOR_SEARCH='%F{5}SEARCH%f'
-MODE_INDICATOR_VISUAL='%F{11}VISUAL%f'
-MODE_INDICATOR_VLINE='%F{11}V-LINE%f'
+MODE_INDICATOR_VIINS='%F{4}Insert%f'
+MODE_INDICATOR_VICMD='%F{5}Normal%f'
+MODE_INDICATOR_REPLACE='%F{11}Replace%f'
+MODE_INDICATOR_SEARCH='%F{5}Search%f'
+MODE_INDICATOR_VISUAL='%F{11}Visual%f'
+MODE_INDICATOR_VLINE='%F{11}V-Line%f'
 
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
-PS1="[%F{2}%n%f][${current_dir}${rvm_ruby}${git_branch}${venv_prompt}] %"
-RPS1="[${MODE_INDICATOR_PROMPT}][%F{7}%D{%m/%d/%y,%H:%M:%S}%f]"
+PS1="${current_dir}${rvm_ruby}${git_branch}${venv_prompt} %F{2}>>>%f %"
+RPS1="${MODE_INDICATOR_PROMPT} %F{7}%D{%m/%d/%y,%H:%M:%S}%f"

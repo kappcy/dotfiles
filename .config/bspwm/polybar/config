@@ -20,7 +20,7 @@ DarkCyan = ${xrdb:color6}
 Cyan = ${xrdb:color14}
 
 [fonts]
-font-0 = fira code regular:pixelsize=10;2
+font-0 = PragmataPro Mono:size=10;2
 font-1 = Symbols Nerd Font :pixelsize=12;2
 font-2 = Symbols Nerd Font :pixelsize=12;3
 font-3 = "Source Han Sans JP:pixelsize=9;3"
@@ -128,7 +128,7 @@ border-right-size = 2
 border-left-size = 2
 border-color = #343434
 
-font-0 = fira code regular:pixelsize=14;2
+font-0 = PragmataPro Mono:pixelsize=14;2
 font-1 = Symbols Nerd Font :pixelsize=16;2
 font-2 = Symbols Nerd Font :pixelsize=16;3
 font-3 = "Source Han Sans JP:pixelsize=13;2"
@@ -185,7 +185,7 @@ format-volume-underline = ${colors.Green}
 label-volume =  %percentage%%
 label-volume-foreground = ${colors.fg0}
 
-label-muted = "%{A3:$HOME/scripts/pavu-scratchpad.sh:} muted%{A}"
+label-muted = "%{A3:$HOME/scripts/pavu-scratchpad.sh:} muted%{A}"
 label-muted-foreground = ${colors.fg0}
 label-muted-underline = ${colors.Green}
 

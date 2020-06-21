@@ -8,9 +8,9 @@ icon_set() {
 	chk=( T:TT T:TF T:E M:TT M:TF M:E )
 	chk2=( 1 2 3 4 5 6 )
 	for i in ${!chk[*]}; do
-		[[ ${last_status_list[@]} != *$1=${chk[i]}* ]] && \
-		[[ ${status_list[@]} = *$1=${chk[i]}* ]] && \
-		polybar-msg hook bspwm_states_$2 ${chk2[i]}
+		[[ ${last_status_list[*]} != *$1=${chk[i]}* ]] && \
+		[[ ${status_list[*]} = *$1=${chk[i]}* ]] && \
+		polybar-msg hook bspwm_states_"$2" "${chk2[i]}"
 	done
 }
 
@@ -19,19 +19,19 @@ update() {
     state=${status#*$1}; state=${state#*L}
     state=${state%%:[G|S|P|L|M|m]*}
 	[[ $state != *:T* ]] && state="$state:E"
-	status_list+=($1=$state)
-	icon_set $1 $2
+	status_list+=("$1""=""$state")
+	icon_set "$1" "$2"
 }
 
 case "$1" in
 	start)
-		bspc subscribe report | while read; do
+		bspc subscribe report | while read -r; do
 			unset status_list
 			status=$(bspc wm -g)
 			update DVI-D-0 right
 			update HDMI-0 left
 			update DP-0 tv
-			last_status_list=${status_list[@]}
+			last_status_list=("${status_list[@]}")
 		done
         ;;
     tiled.tiled)
