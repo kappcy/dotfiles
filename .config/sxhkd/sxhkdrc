@@ -3,8 +3,8 @@
 #
 
 # terminal emulator (termite)
-super + Return
-	alacritty
+super + {_,shift + }Return
+    {_,bspc rule -a \* -o state=floating && }alacritty
 
 # program launcher (rofi)
 alt + q
@@ -263,53 +263,9 @@ super + ctrl + {1-9}
 super + ctrl + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
-# move/resize
-#
-
-# circulate
-
-# vim way
-alt + {h,l}
-	bspc node -C {backward,forward}
-
-# arrow keys
-alt + {Left,Right}
-	bspc node -C {backward,forward}
-
-# rotate
+# circulate rotate
 super + {_,shift + }space
 	bspc node{ @/, } -R 90
-
-# expand a window by moving one of its side outward
-
-# vim way
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# arrow keys
-super + alt + {Left,Down,Up,Right}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-
-# vim way
-super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# arrow keys
-super + alt + shift + {Left,Down,Up,Right}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-
-# vim way
-super + {h,j,k,l}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-# arrow keys
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # audio keys
 

@@ -20,7 +20,6 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vimwiki/vimwiki'
-"Plugin 'WolfgangMehner/vim-plugins'
 
 call vundle#end()		" required, all plugins must appear before this line.
 

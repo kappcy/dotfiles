@@ -49,6 +49,9 @@ MODE_INDICATOR_SEARCH='%F{5}Search%f'
 MODE_INDICATOR_VISUAL='%F{11}Visual%f'
 MODE_INDICATOR_VLINE='%F{11}V-Line%f'
 
+# disable ctrl s being a thing
+stty -ixon
+
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 PS1="${current_dir}${rvm_ruby}${git_branch}${venv_prompt} %F{2}>>>%f %"
 RPS1="${MODE_INDICATOR_PROMPT} %F{7}%D{%m/%d/%y,%H:%M:%S}%f"

@@ -20,11 +20,9 @@ DarkCyan = ${xrdb:color6}
 Cyan = ${xrdb:color14}
 
 [fonts]
-font-0 = PragmataPro Mono:size=10;2
-font-1 = Symbols Nerd Font :pixelsize=12;2
-font-2 = Symbols Nerd Font :pixelsize=12;3
-font-3 = "Source Han Sans JP:pixelsize=9;3"
-font-4 = "Source Han Sans JP:pixelsize=9;2"
+font-0 = "PragmataPro Mono:size=10;2"
+font-1 = "Symbols Nerd Font :pixelsize=10;2"
+font-2 = "Symbols Nerd Font :pixelsize=10;3"
 
 [bar/right]
 monitor = DVI-D-0
@@ -51,15 +49,14 @@ border-color = ${colors.bg1}
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 font-2 = ${fonts.font-2}
-font-3 = ${fonts.font-3}
 
 padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = launcher seperator bspwm_states_right seperator bspwm xtitle_right
-modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
+modules-left = bspwm_states_right seperator bspwm xtitle_right
+modules-right = eth cpu_info nvidia_info pulseaudio date
 
 
 [bar/left]
@@ -87,14 +84,13 @@ border-color = #343434
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 font-2 = ${fonts.font-2}
-font-3 = ${fonts.font-3}
 
 padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = launcher seperator bspwm_states_left seperator bspwm xtitle_left
+modules-left = bspwm_states_left seperator bspwm xtitle_left
 
 tray-detached = false
 tray-offset-x = 0
@@ -128,18 +124,17 @@ border-right-size = 2
 border-left-size = 2
 border-color = #343434
 
-font-0 = PragmataPro Mono:pixelsize=14;2
-font-1 = Symbols Nerd Font :pixelsize=16;2
-font-2 = Symbols Nerd Font :pixelsize=16;3
-font-3 = "Source Han Sans JP:pixelsize=13;2"
+font-0 = "PragmataPro Mono:pixelsize=14;2"
+font-1 = "Symbols Nerd Font :pixelsize=16;2"
+font-2 = "Symbols Nerd Font :pixelsize=16;3"
 
 padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = launcher seperator bspwm_states_tv seperator xtitle_tv
-modules-right = eth seperator cpu_info seperator nvidia_info seperator pulseaudio seperator date
+modules-left = bspwm_states_tv seperator xtitle_tv
+modules-right = eth cpu_info nvidia_info pulseaudio date
 
 
 [module/xwindow]
@@ -158,11 +153,20 @@ label-connected-foreground = ${colors.fg0}
 label-connected-underline = ${colors.Red}
 label-connected = "%{A1:gksu nm-connection-editor:} %local_ip%%{A}"
 
+[module/public_ip]
+type = custom/script
+exec = echo " $(curl -s ifconfig.me || echo -e Disconnected)"
+click-right = "gksu nm-connection-editor"
+interval = 3.0
+
+label-foreground = ${colors.fg0}
+label-underline = ${colors.Red}
+
 [module/cpu_info]
 type = custom/script
 exec = echo " $(top -bn1 | sed -n '/Cpu/p' | awk '{print $2}' | sed 's/..,//')%  $(echo "$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon[0-9]/temp1_input) / 1000" | bc)°C"
-click-right = bspc rule -a \* -o state=floating && termite -e htop &
-interval = 1
+click-right = "bspc rule -a \* -o state=floating && termite -e htop &"
+interval = 1.0
 
 label-foreground = ${colors.fg0}
 label-underline = ${colors.Blue}
@@ -199,17 +203,12 @@ time = %H:%M
 label-foreground = ${colors.fg0}
 label-underline = ${colors.Yellow}
 
-label = %{A1:gsimplecal &:} %date%  %time%%{A}
+label = %{A1:gsimplecal &:} %time%%{A}
 
 [module/seperator]
 type = custom/text
-content-font = 5
-content = %{F#928374}|%{F-}
-
-[module/launcher]
-type = custom/text
-content-font = 3
-content = "%{A1:bspc monitor pointed -f; rofi -show drun -m -4:}%{F#458588}%{F-}%{A}"
+content-foreground = ${colors.DarkGrey}
+content = "|"
 
 [module/xtitle_right]
 type = custom/ipc
@@ -228,6 +227,7 @@ initial = 1
 
 [module/bspwm_states_right]
 type = custom/ipc
+content-font = 2
 hook-0 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.tiled
 hook-1 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.floating
 hook-2 = $HOME/.config/bspwm/polybar/ipc_modules/bspwm_states.sh tiled.empty
@@ -264,14 +264,7 @@ enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
 
-ws-icon-0 = 1;壱
-ws-icon-1 = 2;弐
-ws-icon-2 = 3;参
-ws-icon-3 = 4;四
-ws-icon-4 = 5;五
-ws-icon-5 = 6;六
-ws-icon-6 = 7;七
-ws-icon-7 = 8;八
+ws-icon-default = ⊚
 
 format = <label-state> <label-mode>
 
