@@ -7,7 +7,7 @@ numlockx on & # numlock
 xsetroot -cursor_name left_ptr & # set mouse pointer
 picom & # compositor
 dunst & # notifications
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # polkit
+/usr/bin/lxpolkit & # polkit
 nitrogen --restore & # set wallpaper
 $HOME/.config/bspwm/polybar/launch.sh
 $HOME/scripts/screenblank & # my_screen-blanking_script
