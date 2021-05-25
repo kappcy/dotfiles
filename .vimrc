@@ -62,7 +62,7 @@ filetype indent on
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 
-    let mapleader ="'"
+    let mapleader =";"
 
 " lightline
     let g:lightline = {
@@ -90,12 +90,6 @@ filetype indent on
 	inoremap  <leader>{  {}<Left>
 	inoremap  <leader>'  ''<Left>
 	inoremap  <leader>"  ""<Left>
-
-" Remap ESC to ii
-    imap ii <Esc>
-
-" map : to ; because wth not
-    nnoremap ; :
 
 " Disable arrow keys in Normal mode
     no <Up> <Nop>

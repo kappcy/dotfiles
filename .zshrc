@@ -42,16 +42,17 @@ alias config-scripts='/usr/bin/git --git-dir=$HOME/git/scripts/ --work-tree=$HOM
 
 # vim thing
 setopt PROMPT_SUBST
-MODE_INDICATOR_VIINS='%F{4}Insert%f'
-MODE_INDICATOR_VICMD='%F{5}Normal%f'
-MODE_INDICATOR_REPLACE='%F{11}Replace%f'
-MODE_INDICATOR_SEARCH='%F{5}Search%f'
-MODE_INDICATOR_VISUAL='%F{11}Visual%f'
-MODE_INDICATOR_VLINE='%F{11}V-Line%f'
+MODE_INDICATOR_VIINS='%F{4}>%f'
+MODE_INDICATOR_VICMD='%F{5}>%f'
+MODE_INDICATOR_REPLACE='%F{11}>%f'
+MODE_INDICATOR_SEARCH='%F{5}>%f'
+MODE_INDICATOR_VISUAL='%F{11}>%f'
+MODE_INDICATOR_VLINE='%F{11}>%f'
 
 # disable ctrl s being a thing
 stty -ixon
 
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
-PS1="${current_dir}${rvm_ruby}${git_branch}${venv_prompt} %F{2}>>>%f %"
-RPS1="${MODE_INDICATOR_PROMPT} %F{7}%D{%m/%d/%y,%H:%M:%S}%f"
+PS1="${current_dir}${rvm_ruby}${git_branch}${venv_prompt} %F{2}>%F{7}>${MODE_INDICATOR_PROMPT}%f %"
+RPS1="%F{7}%D{%m/%d/%y,%H:%M:%S}%f"
+

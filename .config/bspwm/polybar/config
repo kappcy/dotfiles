@@ -20,7 +20,7 @@ DarkCyan = ${xrdb:color6}
 Cyan = ${xrdb:color14}
 
 [fonts]
-font-0 = "PragmataPro Mono:size=10;2"
+font-0 = "JetBrains Mono:size=9.5;2"
 font-1 = "Symbols Nerd Font :pixelsize=10;2"
 font-2 = "Symbols Nerd Font :pixelsize=10;3"
 
@@ -30,7 +30,7 @@ width = 100%:-16
 height = 24
 offset-x = 8
 offset-y = 8
-fixed-center = false
+fixed-center = true
 
 background = ${colors.bg0}
 foreground = ${colors.fg0}
@@ -55,7 +55,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_right seperator bspwm xtitle_right
+modules-left = bspwm_states_right seperator bspwm
+modules-center = xtitle_right
 modules-right = eth cpu_info nvidia_info pulseaudio date
 
 
@@ -65,7 +66,7 @@ width = 100%:-16
 height = 24
 offset-x = 8
 offset-y = 8
-fixed-center = false
+fixed-center = true
 
 background = ${colors.bg0}
 foreground = ${colors.fg0}
@@ -90,14 +91,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_left seperator bspwm xtitle_left
+modules-left = bspwm_states_left seperator bspwm
+modules-center = xtitle_left
 
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
 tray-position = right
 tray-padding = 2
-tray-maxsize = 16
+tray-maxsize = 18
 tray-scale = 1.0
 tray-background = ${colors.bg0}
 
@@ -108,7 +110,7 @@ width = 100%:-32
 height = 34
 offset-x = 16
 offset-y = 16
-fixed-center = false
+fixed-center = true
 
 background = ${colors.bg0}
 foreground = ${colors.fg0}
@@ -133,7 +135,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-modules-left = bspwm_states_tv seperator xtitle_tv
+modules-left = bspwm_states_tv seperator bspwm
+modules-center = xtitle_tv
 modules-right = eth cpu_info nvidia_info pulseaudio date
 
 
@@ -150,48 +153,46 @@ interface = enp0s31f6
 interval = 3.0
 
 label-connected-foreground = ${colors.fg0}
-label-connected-underline = ${colors.Red}
-label-connected = "%{A1:gksu nm-connection-editor:} %local_ip%%{A}"
+;label-connected-underline = ${colors.Red}
+label-connected = " %local_ip%"
 
 [module/public_ip]
 type = custom/script
 exec = echo " $(curl -s ifconfig.me || echo -e Disconnected)"
-click-right = "gksu nm-connection-editor"
 interval = 3.0
 
 label-foreground = ${colors.fg0}
-label-underline = ${colors.Red}
+;label-underline = ${colors.Red}
 
 [module/cpu_info]
 type = custom/script
 exec = echo " $(top -bn1 | sed -n '/Cpu/p' | awk '{print $2}' | sed 's/..,//')%  $(echo "$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon[0-9]/temp1_input) / 1000" | bc)°C"
-click-right = "bspc rule -a \* -o state=floating && termite -e htop &"
 interval = 1.0
 
 label-foreground = ${colors.fg0}
-label-underline = ${colors.Blue}
+;label-underline = ${colors.Blue}
 
 [module/nvidia_info]
 type = custom/script
 tail = true
 exec-if = nvidia-smi
-exec = nvidia-smi --loop=1 --query-gpu=temperature.gpu,utilization.gpu,utilization.memory --format=csv,noheader,nounits | sed -ur 's|([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)| \2%  \1°C|g'
+exec = "nvidia-smi --loop=1 --query-gpu=temperature.gpu,utilization.gpu,utilization.memory --format=csv,noheader,nounits | sed -ur 's|([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)| \\2%  \\1°C|g'"
 
 label-foreground = ${colors.fg0}
-label-underline = ${colors.Magenta}
+;label-underline = ${colors.Magenta}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 format-volume = "%{A3:$HOME/scripts/pavu-scratchpad.sh:}<label-volume>%{A}"
-format-volume-underline = ${colors.Green}
+;format-volume-underline = ${colors.Green}
 label-volume =  %percentage%%
 label-volume-foreground = ${colors.fg0}
 
 label-muted = "%{A3:$HOME/scripts/pavu-scratchpad.sh:} muted%{A}"
 label-muted-foreground = ${colors.fg0}
-label-muted-underline = ${colors.Green}
+;label-muted-underline = ${colors.Green}
 
 [module/date]
 type = internal/date
@@ -201,7 +202,7 @@ date = %Y-%m-%d%
 time = %H:%M
 
 label-foreground = ${colors.fg0}
-label-underline = ${colors.Yellow}
+;label-underline = ${colors.Yellow}
 
 label = %{A1:gsimplecal &:} %time%%{A}
 
@@ -264,7 +265,7 @@ enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
 
-ws-icon-default = ⊚
+ws-icon-default = ◯
 
 format = <label-state> <label-mode>
 

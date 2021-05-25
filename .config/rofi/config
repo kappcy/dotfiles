@@ -7,7 +7,7 @@ rofi.lines:                          10
 ! "Number of columns" Set from: File
 rofi.columns:                        2
 ! "Font to use" Set from: File
-rofi.font:                           fira code regular 10
+rofi.font:                           JetBrains 9.5
 ! "Border width" Set from: File
 rofi.bw:                             2
 ! "Location on screen" Set from: File
@@ -31,7 +31,7 @@ rofi.show-icons:                     true
 ! "Run command to execute" Set from: File
 rofi.run-command:                    {cmd}
 ! "Command to get extra run targets" Set from: File
-rofi.run-list-command:               
+rofi.run-list-command:
 ! "Run command to execute that runs in shell" Set from: File
 rofi.run-shell-command:              {terminal} -e {cmd}
 ! "Command executed on accep-entry-custom for window modus" Set from: File
@@ -39,7 +39,7 @@ rofi.window-command:                 xkill -id {window}
 ! "Window fields to match in window mode" Set from: Default
 ! rofi.window-match-fields:            all
 ! "Theme to use to look for icons" Set from: Default
-! rofi.drun-icon-theme:                
+! rofi.drun-icon-theme:
 ! "Desktop entry fields to match in drun" Set from: Default
 ! rofi.drun-match-fields:              name,generic,exec,categories
 ! "Disable history in run/ssh" Set from: File
@@ -70,38 +70,24 @@ rofi.combi-modi:                     window,drun
 rofi.tokenize:                       true
 ! "Monitor id to show on" Set from: Default
 ! rofi.m:                              -5
-! "Margin between rows *DEPRECATED*" Set from: File
-rofi.line-margin:                    2
-! "Padding within rows *DEPRECATED*" Set from: Default
-! rofi.line-padding:                   1
 ! "Pre-set filter" Set from: File
-rofi.filter:                         
-! "Separator style (none, dash, solid) *DEPRECATED*" Set from: File
-rofi.separator-style:                none
-! "Hide scroll-bar *DEPRECATED*" Set from: File
-rofi.hide-scrollbar:                 true
+rofi.filter:
 ! "Fullscreen" Set from: File
 rofi.fullscreen:                     false
-! "Fake transparency *DEPRECATED*" Set from: File
-rofi.fake-transparency:              true
 ! "DPI" Set from: File
 rofi.dpi:                            -1
 ! "Threads to use for string matching" Set from: File
 rofi.threads:                        1
-! "Scrollbar width *DEPRECATED*" Set from: File
-rofi.scrollbar-width:                8
 ! "Scrolling method. (0: Page, 1: Centered)" Set from: File
 rofi.scroll-method:                  0
 ! "Background to use for fake transparency. (background or screenshot)" Set from: Default
 ! rofi.fake-background:                screenshot
-! "Window Format. w (desktop name), t (title), n (name), r (role), c (class) *DEPRECATED*" Set from: File
-rofi.window-format:                  {w}   {c}   {t}
 ! "Click outside the window to exit" Set from: Default
 ! rofi.click-to-exit:                  true
 ! "Indicate how it match by underlining it." Set from: Default
 ! rofi.show-match:                     true
 ! "New style theme file" Set from: Default
-! rofi.theme:                          
+! rofi.theme:
 ! "Color scheme for normal row" Set from: File
 rofi.color-normal:                   #282828,#ebdbb2,#282828,#3c3836,#ebdbb2
 ! "Color scheme for urgent row" Set from: File
@@ -117,19 +103,19 @@ rofi.color-window:                   #282828,#3c3836
 ! "Pidfile location" Set from: Default
 ! rofi.pid:                            /run/user/1000/rofi.pid
 ! "The display name of this browser" Set from: Default
-! rofi.display-window:                 
+! rofi.display-window:
 ! "The display name of this browser" Set from: Default
-! rofi.display-windowcd:               
+! rofi.display-windowcd:
 ! "The display name of this browser" Set from: Default
-! rofi.display-run:                    
+! rofi.display-run:
 ! "The display name of this browser" Set from: Default
-! rofi.display-ssh:                    
+! rofi.display-ssh:
 ! "The display name of this browser" Set from: Default
-! rofi.display-drun:                   
+! rofi.display-drun:
 ! "The display name of this browser" Set from: Default
-! rofi.display-combi:                  
+! rofi.display-combi:
 ! "The display name of this browser" Set from: Default
-! rofi.display-keys:                   
+! rofi.display-keys:
 ! "Paste primary selection" Set from: Default
 ! rofi.kb-primary-paste:               Control+V,Shift+Insert
 ! "Paste clipboard" Set from: Default

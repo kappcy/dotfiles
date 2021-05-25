@@ -30,8 +30,9 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a Shutter state=floating
 bspc rule -a Galculator state=floating
 bspc rule -a '*:gsimplecal' monitor=DVI-D-0 state=floating follow=off
-bspc rule -a Vivaldi-stable desktop='^1'
+# bspc rule -a Vivaldi-stable desktop='^1'
 bspc rule -a discord desktop='^5'
-bspc rule -a Steam desktop='^2' state=floating
+# bspc rule -a Steam desktop='^2' state=tiled
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Pcmanfm state=floating follow=on
+

@@ -22,9 +22,9 @@ super + Escape
 alt + c
     galculator
 
-# internet (vivaldi)
+# internet (brave)
 alt + i
-    vivaldi-stable
+    brave
 
 # files (pcmanfm)
 alt + f

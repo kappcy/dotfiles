@@ -31,11 +31,10 @@ case "$1" in
 			focus_monitor="bspc monitor pointed -f"
 			echo -ne "%{A1:$focus_monitor:}"
 			echo -ne "%{A2:$focus_monitor; bspc node -c:}"
-			echo -ne "%{T1}%{F#b8bb26}  %{F-}%{T-}"
-			[[ "${#title}" -gt "120" ]] && \
-			title="${title:0:120}..."
+			[[ "${#title}" -gt "60" ]] && \
+			title="${title:0:60}..."
 			echo -ne "$title"
 			echo -ne "%{A}%{A}"
-		} || echo -ne "%{T1}%{F#928374}  %{F-}%{T-}"
+		} || echo -ne " "
 	;;
 esac
